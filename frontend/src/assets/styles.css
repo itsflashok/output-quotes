@@ -1,0 +1,1223 @@
+/* ========================================
+   MODERN ELEGANT DESIGN
+   Sophisticated Dark Theme with Warm Accents
+   ======================================== */
+
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.7;
+  color: #1a1a1a;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  font-size: 16px;
+  overflow-y: scroll;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ========================================
+   TOP BAR - Profile Section
+   ======================================== */
+.top-bar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 1.5rem 2rem;
+  z-index: 1000;
+}
+
+.profile-section {
+  position: relative;
+}
+
+.profile-trigger {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 1rem;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.profile-trigger:hover {
+  border-color: #d1d5db;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.profile-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6b7280 0%, #4b5563 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
+
+.profile-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.profile-arrow {
+  color: #9ca3af;
+  transition: transform 0.2s ease;
+}
+
+.profile-arrow.rotate {
+  transform: rotate(180deg);
+}
+
+.profile-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 220px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem 1.25rem;
+  color: #374151;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 0.15s ease;
+  cursor: pointer;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+}
+
+.menu-item svg {
+  color: #6b7280;
+  flex-shrink: 0;
+}
+
+.menu-item:hover {
+  background: #f9fafb;
+}
+
+.menu-item.logout {
+  color: #6b7280;
+}
+
+.menu-item.logout:hover {
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+.menu-item.logout svg {
+  color: currentColor;
+}
+
+.menu-divider {
+  height: 1px;
+  background: #e5e7eb;
+  margin: 0.5rem 0;
+}
+
+/* Auth links for non-authenticated users */
+.auth-links {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.auth-link {
+  padding: 0.6rem 1.5rem;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  color: #374151;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.15s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.auth-link:hover {
+  border-color: #d1d5db;
+  background: #f9fafb;
+}
+
+/* ========================================
+   MAIN CONTENT
+   ======================================== */
+main {
+  flex: 1;
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem 2rem 3rem 2rem;
+}
+
+h1 {
+  color: #1a1a1a;
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  text-align: center;
+  letter-spacing: -0.5px;
+  background: linear-gradient(135deg, #1a1a1a 0%, #495057 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+h2 {
+  color: #1a1a1a;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+}
+
+/* ========================================
+   FORMS - Modern & Clean
+   ======================================== */
+.form-group {
+  margin-bottom: 1.8rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.6rem;
+  color: #374151;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.9rem 1.2rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  background: white;
+  font-size: 15px;
+  color: #1a1a1a;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #6b7280;
+  box-shadow: 0 0 0 3px rgba(107, 114, 128, 0.1);
+  transform: none;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+  line-height: 1.6;
+}
+
+
+/* ========================================
+   BUTTONS - Clean Modern Style
+   ======================================== */
+button[type="submit"],
+button[type="button"] {
+  background: #4b5563;
+  color: white;
+  border: none;
+  padding: 0.9rem 2rem;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+button[type="submit"]:hover:not(:disabled),
+button[type="button"]:hover:not(:disabled) {
+  background: #374151;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+button[type="submit"]:active:not(:disabled),
+button[type="button"]:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+button[type="submit"]:disabled,
+button[type="button"]:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ========================================
+   QUOTE CARDS - Clean Professional Design
+   ======================================== */
+.quote-card,
+.publication-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 2.5rem;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: none;
+}
+
+/* Smaller margin for submission cards */
+.submission-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: none;
+}
+
+.quote-card:hover,
+.submission-card:hover,
+.publication-card:hover {
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+/* Quote Content Layout - Avatar with Speech Bubble */
+.quote-content-wrapper,
+.publication-content-wrapper {
+  position: relative;
+  min-height: 240px;
+  padding: 2.5rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 2.5rem;
+  background: transparent;
+}
+
+/* Smaller layout for submissions */
+.submission-content-wrapper {
+  position: relative;
+  padding: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  background: transparent;
+}
+
+/* Avatar section wrapper - contains image and author name */
+.avatar-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+/* Image as clean avatar on the left */
+.quote-image,
+.publication-image {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e5e7eb;
+  background: white;
+}
+
+/* Smaller image for submissions */
+.submission-image {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  flex-shrink: 0;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e5e7eb;
+  background: white;
+}
+
+.quote-image img,
+.submission-image img,
+.publication-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  filter: grayscale(10%) contrast(1.05);
+}
+
+/* Remove the overlay div approach */
+.image-fade {
+  display: none;
+}
+
+/* Quote text on the right - Speech Bubble Style */
+.quote-text-content {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem 2.5rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e5e7eb;
+}
+
+/* Speech bubble tail pointing to avatar center */
+.quote-text-content::before {
+  content: '';
+  position: absolute;
+  left: -16px;
+  top: calc(80px - 15px);
+  width: 0;
+  height: 0;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  border-right: 16px solid #e5e7eb;
+  z-index: 1;
+}
+
+.quote-text-content::after {
+  content: '';
+  position: absolute;
+  left: -14px;
+  top: calc(80px - 14px);
+  width: 0;
+  height: 0;
+  border-top: 14px solid transparent;
+  border-bottom: 14px solid transparent;
+  border-right: 15px solid white;
+  z-index: 2;
+}
+
+/* Smaller tail for submissions pointing to smaller avatar center */
+.submission-card .quote-text-content::before {
+  top: calc(30px - 15px);
+}
+
+.submission-card .quote-text-content::after {
+  top: calc(30px - 14px);
+}
+
+.quote-card blockquote,
+.publication-card blockquote {
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #1a1a1a;
+  margin: 0 0 1.5rem 0;
+  font-style: italic;
+  font-family: 'Georgia', 'Merriweather', serif;
+  position: relative;
+  padding-left: 2.5rem;
+  letter-spacing: -0.3px;
+}
+
+/* Smaller text for submissions */
+.submission-card blockquote {
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 1.3;
+  color: #1a1a1a;
+  margin: 0 0 0.5rem 0;
+  font-style: italic;
+  font-family: 'Georgia', 'Merriweather', serif;
+  position: relative;
+  padding-left: 1.5rem;
+  letter-spacing: -0.2px;
+}
+
+.quote-card blockquote::before,
+.publication-card blockquote::before {
+  content: '"';
+  position: absolute;
+  left: 0;
+  top: -0.6rem;
+  font-size: 4rem;
+  color: #9ca3af;
+  opacity: 0.2;
+  font-family: Georgia, serif;
+  line-height: 1;
+  font-style: normal;
+}
+
+/* Smaller quote mark for submissions */
+.submission-card blockquote::before {
+  content: '"';
+  position: absolute;
+  left: 0;
+  top: -0.3rem;
+  font-size: 2.5rem;
+  color: #9ca3af;
+  opacity: 0.2;
+  font-family: Georgia, serif;
+  line-height: 1;
+  font-style: normal;
+}
+
+/* Author styling - now under avatar */
+.quote-author {
+  text-align: center;
+  font-size: 0.85rem;
+  color: #6b7280;
+  font-weight: 600;
+  font-style: normal;
+  letter-spacing: 0.3px;
+  margin: 0;
+  max-width: 160px;
+  line-height: 1.3;
+}
+
+/* Smaller author text for submissions */
+.submission-card .quote-author {
+  font-size: 0.65rem;
+  max-width: 60px;
+  line-height: 1.2;
+}
+
+.quote-author::before {
+  content: '';
+  opacity: 0.6;
+}
+
+/* Date styling - appears after the quote */
+.quote-author-date {
+  text-align: right;
+  font-size: 0.9rem;
+  color: #9ca3af;
+  font-weight: 500;
+  font-style: normal;
+  margin-bottom: 0.5rem;
+}
+
+/* Smaller date text for submissions */
+.submission-card .quote-author-date {
+  font-size: 0.75rem;
+  margin-bottom: 0.3rem;
+}
+
+/* Meta container for conditional elements */
+.quote-meta {
+  margin-top: 0.5rem;
+}
+
+.quote-meta.has-date .quote-author-date {
+  margin-bottom: 0.3rem;
+}
+
+.quote-meta:not(.has-date) .quote-author-date {
+  display: none;
+}
+
+.quote-meta:not(.has-submitter) .quote-footnote {
+  display: none;
+}
+
+/* Subtle footnote */
+.quote-footnote {
+  text-align: right;
+  font-size: 0.8rem;
+  color: #9ca3af;
+  font-style: italic;
+  margin-top: 0.3rem;
+  opacity: 0.7;
+}
+
+/* Inline reactions */
+.inline-reactions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+/* Read-only reactions for guests */
+.inline-reactions.readonly {
+  opacity: 0.8;
+}
+
+.reaction-display {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 1.2rem;
+  border: 1px solid #e5e7eb;
+  background: #f9fafb;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #6b7280;
+  cursor: default;
+}
+
+.reaction-display svg {
+  color: #9ca3af;
+  flex-shrink: 0;
+}
+
+/* Meta Information - Removed for cleaner design */
+
+.submission-info,
+.publication-info {
+  padding: 0.8rem 2.5rem;
+  background: #f5f0e8;
+  border-top: 1px solid #e8dcc8;
+  font-size: 13px;
+  color: #8b7355;
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Inter', -apple-system, sans-serif;
+}
+
+/* ========================================
+   VOTE SECTION - Modern Progress Bar
+   ======================================== */
+.vote-section {
+  padding: 0.75rem 1rem;
+  background: #f8f9fa;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.vote-progress {
+  flex: 1;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 5px;
+  background: #e5e7eb;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 0.3rem;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.06);
+}
+
+.progress-fill {
+  height: 100%;
+  background: #6b7280;
+  border-radius: 10px;
+  transition: width 0.4s ease;
+  box-shadow: none;
+}
+
+.vote-count {
+  font-size: 0.8rem;
+  color: #6b7280;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+.vote-button {
+  background: #6b7280;
+  color: white;
+  border: none;
+  padding: 0.6rem 0.9rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+  min-width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+/* Vote icon - SVG */
+.icon-vote {
+  width: 16px;
+  height: 16px;
+  color: white;
+}
+
+/* Check icon for already voted */
+.icon-check {
+  width: 16px;
+  height: 16px;
+  color: white;
+}
+
+/* Already voted state - green with checkmark */
+.vote-button.already-voted {
+  background: #10b981;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.vote-button.already-voted:hover {
+  background: #10b981;
+}
+
+.vote-button:hover:not(:disabled):not(.disabled):not(.already-voted) {
+  background: #4b5563;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.vote-button:active:not(:disabled):not(.disabled):not(.already-voted) {
+  transform: scale(0.98);
+}
+
+.vote-button:disabled,
+.vote-button.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ========================================
+   REACTION BUTTONS - Modern & Colorful
+   ======================================== */
+
+.like-button,
+.dislike-button {
+  padding: 0.6rem 1.2rem;
+  border: 1px solid #d1d5db;
+  outline: none;
+  background: white;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 8px;
+  color: #6b7280;
+}
+
+.like-button:hover:not(:disabled) {
+  background: #f9fafb;
+  border-color: #9ca3af;
+}
+
+.dislike-button:hover:not(:disabled) {
+  background: #f9fafb;
+  border-color: #9ca3af;
+}
+
+/* Active state when user has reacted */
+.like-button.active {
+  background: #4b5563;
+  border-color: #4b5563;
+  color: white;
+}
+
+.like-button.active svg {
+  color: white;
+}
+
+.like-button.active:hover:not(:disabled) {
+  background: #374151;
+  border-color: #374151;
+}
+
+.dislike-button.active {
+  background: #4b5563;
+  border-color: #4b5563;
+  color: white;
+}
+
+.dislike-button.active svg {
+  color: white;
+}
+
+.dislike-button.active:hover:not(:disabled) {
+  background: #374151;
+  border-color: #374151;
+}
+
+.like-button:focus,
+.dislike-button:focus {
+  outline: none;
+}
+
+.like-button:active,
+.dislike-button:active {
+  outline: none;
+}
+
+/* Like/Dislike icons - SVG */
+.icon-like,
+.icon-dislike {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.reaction-count {
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+.like-button:active:not(.disabled),
+.dislike-button:active:not(.disabled) {
+  transform: translateY(0);
+}
+
+.like-button:disabled,
+.dislike-button:disabled,
+.like-button.disabled,
+.dislike-button.disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ========================================
+   PAGINATION - Modern Design
+   ======================================== */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.pagination-icon {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: auto !important;
+  height: auto !important;
+  background: transparent !important;
+  border: none !important;
+  padding: 0.25rem !important;
+  margin: 0 !important;
+  cursor: pointer;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+.pagination-icon svg {
+  width: 24px;
+  height: 24px;
+  color: #9ca3af;
+  stroke: #9ca3af;
+  transition: color 0.2s ease, stroke 0.2s ease;
+}
+
+.pagination-icon:hover:not(:disabled) {
+  background: transparent !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+.pagination-icon:hover:not(:disabled) svg {
+  color: #6b7280;
+  stroke: #6b7280;
+}
+
+.pagination-icon:disabled {
+  opacity: 0.25;
+  cursor: not-allowed;
+}
+
+.pagination-icon:disabled svg {
+  opacity: 0.25;
+}
+
+
+/* ========================================
+   LOADING - Modern Style
+   ======================================== */
+.loading {
+  text-align: center;
+  padding: 4rem;
+  font-size: 16px;
+  color: #6b7280;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+/* ========================================
+   AUTH FORMS - Modern Cards
+   ======================================== */
+.login, .register, .quote-submit {
+  max-width: 540px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 20px;
+  padding: 3rem;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+}
+
+.login h1, .register h1, .quote-submit h1 {
+  color: #1a1a1a;
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+  text-align: center;
+  letter-spacing: -0.5px;
+}
+
+.login p, .register p {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.login a, .register a {
+  color: #6366f1;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.login a:hover, .register a:hover {
+  color: #4f46e5;
+  text-decoration: underline;
+}
+
+/* ========================================
+   ADMIN PANEL - Modern Cards
+   ======================================== */
+.admin-panel {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.admin-section {
+  background: white;
+  border-radius: 20px;
+  padding: 2.5rem;
+  margin-bottom: 2.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+}
+
+.admin-section h2 {
+  color: #1a1a1a;
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  letter-spacing: -0.3px;
+}
+
+/* ========================================
+   TOAST NOTIFICATIONS - Clean Design
+   ======================================== */
+.toast-container {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 420px;
+  pointer-events: none;
+}
+
+.toast {
+  background: white;
+  border-radius: 8px;
+  padding: 0.8rem 1rem;
+  border-left: 3px solid #6b7280;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-width: 320px;
+  pointer-events: auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(400px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.toast.success {
+  border-left-color: #10b981;
+  background: linear-gradient(90deg, #ecfdf5 0%, #ffffff 100%);
+}
+
+.toast.error {
+  border-left-color: #ef4444;
+  background: linear-gradient(90deg, #fff1f2 0%, #ffffff 100%);
+}
+
+.toast.warning {
+  border-left-color: #f59e0b;
+  background: linear-gradient(90deg, #fffbeb 0%, #ffffff 100%);
+}
+
+.toast-content {
+  flex: 1;
+  margin-right: 0.5rem;
+}
+
+.toast-title {
+  font-weight: 600;
+  font-size: 14px;
+  color: #1a1a1a;
+  margin-bottom: 0.3rem;
+  letter-spacing: 0.2px;
+}
+
+.toast-message {
+  font-size: 13px;
+  color: #6b7280;
+  line-height: 1.5;
+  word-wrap: break-word;
+}
+
+/* Toast CTA - minimal icon + text (more subtle) */
+.toast-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: rgba(55,65,81,0.55); /* subtle muted color */
+  opacity: 0.75;
+  cursor: pointer;
+  padding: 0.1rem 0.15rem;
+  border-radius: 6px;
+  transition: background 0.12s ease, color 0.12s ease, opacity 0.12s ease, transform 0.08s ease;
+  font-size: 0.86rem;
+}
+
+.toast-cta:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59,130,246,0.12);
+}
+
+.toast-cta:hover {
+  background: rgba(0,0,0,0.03);
+  color: rgba(55,65,81,0.85);
+  opacity: 1;
+  transform: translateY(-1px);
+  text-decoration: none;
+}
+
+.toast-cta .cta-icon {
+  color: currentColor;
+  opacity: 0.8;
+  width: 13px;
+  height: 13px;
+}
+
+.toast-cta .cta-text {
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: inherit;
+  opacity: 0.9;
+}
+
+/* Slightly adjust CTA color per toast type to harmonize with the palette but keep subtle */
+.toast.success .toast-cta { color: rgba(6,95,70,0.65); }
+.toast.error .toast-cta { color: rgba(127,29,29,0.65); }
+.toast.warning .toast-cta { color: rgba(146,64,14,0.65); }
+
+/* FINAL OVERRIDE: ensure visible, light close control (uses !important to beat cascade/cache) */
+.toast .toast-close {
+  background: rgba(255,255,255,0.0) !important;
+  border: none !important;
+  color: #334155 !important; /* medium dark, less heavy than pure black */
+  box-shadow: none !important;
+  width: 24px !important;
+  height: 24px !important;
+  border-radius: 4px !important;
+}
+
+/* ========================================
+   CONTAINERS
+   ======================================== */
+.quotes-container,
+.publications-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+/* 2-column grid for submissions */
+.submissions-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+@media (max-width: 968px) {
+  /* Stack submissions in single column on mobile */
+  .submissions-container {
+    grid-template-columns: 1fr;
+  }
+
+  .quote-content-wrapper,
+  .submission-content-wrapper,
+  .publication-content-wrapper {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+  }
+
+  .avatar-section {
+    margin-bottom: 1rem;
+  }
+
+  .quote-image,
+  .submission-image,
+  .publication-image {
+    width: 120px;
+    height: 120px;
+  }
+
+  .quote-author {
+    max-width: 120px;
+  }
+
+  .submission-card .quote-author {
+    max-width: 100px;
+  }
+
+  .quote-text-content {
+    width: 100%;
+    padding: 2rem;
+  }
+
+  /* Reposition speech bubble tail to point upward on mobile */
+  .quote-text-content::before {
+    left: 50%;
+    top: -21px;
+    transform: translateX(-50%);
+    border-left: 21px solid transparent;
+    border-right: 21px solid transparent;
+    border-bottom: 21px solid #e5e7eb;
+    border-top: none;
+  }
+
+  .quote-text-content::after {
+    left: 50%;
+    top: -18px;
+    transform: translateX(-50%);
+    border-left: 18px solid transparent;
+    border-right: 18px solid transparent;
+    border-bottom: 19px solid white;
+    border-top: none;
+  }
+
+  .quote-card blockquote,
+  .submission-card blockquote,
+  .publication-card blockquote {
+    font-size: 1.5rem;
+    padding-left: 0;
+  }
+
+  .quote-card blockquote::before,
+  .submission-card blockquote::before,
+  .publication-card blockquote::before {
+    font-size: 3.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .quote-author {
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  main {
+    padding: 1rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  nav {
+    padding: 1rem;
+  }
+
+  .vote-section,
+  .reaction-section {
+    flex-direction: column;
+  }
+
+  .pagination {
+    gap: 0.5rem;
+  }
+
+  .pagination-nav {
+    width: 36px;
+    height: 36px;
+  }
+
+  .pagination-nav svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .page-number {
+    min-width: 36px;
+    height: 36px;
+  }
+
+  .toast-container {
+    left: 1rem;
+    right: 1rem;
+    max-width: none;
+  }
+}

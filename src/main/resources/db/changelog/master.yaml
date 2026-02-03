@@ -1,0 +1,362 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: dimanchous
+      changes:
+        - createTable:
+            tableName: authors
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: first_name
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: last_name
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+        - createTable:
+            tableName: users
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: username
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+                    unique: true
+              - column:
+                  name: password
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+        - createTable:
+            tableName: quotes
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: content
+                  type: varchar(1000)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: said_by
+                  type: uuid
+                  constraints:
+                    nullable: false
+              - column:
+                  name: said_at
+                  type: timestamp
+                  constraints:
+                    nullable: false
+        - createTable:
+            tableName: submission
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: submitted_by
+                  type: uuid
+                  constraints:
+                    nullable: false
+              - column:
+                  name: submitted_at
+                  type: timestamp
+                  constraints:
+                    nullable: false
+              - column:
+                  name: quote_id
+                  type: uuid
+                  constraints:
+                    nullable: false
+        - createTable:
+            tableName: publications
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: quote_id
+                  type: uuid
+                  constraints:
+                    nullable: false
+              - column:
+                  name: likes
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: dislikes
+                  type: int
+                  constraints:
+                    nullable: false
+        - addForeignKeyConstraint:
+            baseTableName: quotes
+            baseColumnNames: said_by
+            referencedTableName: authors
+            referencedColumnNames: id
+            constraintName: fk_quotes_said_by
+        - addForeignKeyConstraint:
+            baseTableName: submission
+            baseColumnNames: submitted_by
+            referencedTableName: users
+            referencedColumnNames: id
+            constraintName: fk_submission_submitted_by
+        - addForeignKeyConstraint:
+            baseTableName: submission
+            baseColumnNames: quote_id
+            referencedTableName: quotes
+            referencedColumnNames: id
+            constraintName: fk_submission_quote_id
+        - addForeignKeyConstraint:
+            baseTableName: publications
+            baseColumnNames: quote_id
+            referencedTableName: quotes
+            referencedColumnNames: id
+            constraintName: fk_publications_quote_id
+
+  - changeSet:
+      id: 2
+      author: dimanchous
+      changes:
+        - createTable:
+            tableName: roles
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+                    unique: true
+        - createTable:
+            tableName: user_roles
+            columns:
+              - column:
+                  name: user_id
+                  type: uuid
+                  constraints:
+                    nullable: false
+              - column:
+                  name: role_id
+                  type: uuid
+                  constraints:
+                    nullable: false
+        - addForeignKeyConstraint:
+            baseTableName: user_roles
+            baseColumnNames: user_id
+            referencedTableName: users
+            referencedColumnNames: id
+            constraintName: fk_user_roles_user_id
+        - addForeignKeyConstraint:
+            baseTableName: user_roles
+            baseColumnNames: role_id
+            referencedTableName: roles
+            referencedColumnNames: id
+            constraintName: fk_user_roles_role_id
+
+  - changeSet:
+      id: 3
+      author: dimanchous
+      changes:
+        # Rename submission table to submissions
+        - renameTable:
+            oldTableName: submission
+            newTableName: submissions
+
+        # Add vote_goal column to submissions
+        - addColumn:
+            tableName: submissions
+            columns:
+              - column:
+                  name: vote_goal
+                  type: int
+                  constraints:
+                    nullable: true
+
+        # Drop old foreign key from publications
+        - dropForeignKeyConstraint:
+            baseTableName: publications
+            constraintName: fk_publications_quote_id
+
+        # Drop quote_id column from publications
+        - dropColumn:
+            tableName: publications
+            columnName: quote_id
+
+        # Drop likes and dislikes columns from publications
+        - dropColumn:
+            tableName: publications
+            columnName: likes
+        - dropColumn:
+            tableName: publications
+            columnName: dislikes
+
+        # Add submission_id column to publications
+        - addColumn:
+            tableName: publications
+            columns:
+              - column:
+                  name: submission_id
+                  type: uuid
+                  constraints:
+                    nullable: false
+
+        # Add foreign key from publications to submissions
+        - addForeignKeyConstraint:
+            baseTableName: publications
+            baseColumnNames: submission_id
+            referencedTableName: submissions
+            referencedColumnNames: id
+            constraintName: fk_publications_submission_id
+
+        # Add unique constraint on authors first_name
+        - addUniqueConstraint:
+            tableName: authors
+            columnNames: first_name
+            constraintName: uk_authors_first_name
+
+        # Add unique constraint on authors last_name
+        - addUniqueConstraint:
+            tableName: authors
+            columnNames: last_name
+            constraintName: uk_authors_last_name
+
+  - changeSet:
+      id: 4
+      author: dimanchous
+      changes:
+        # Create votes table for tracking user votes on submissions
+        - createTable:
+            tableName: votes
+            columns:
+              - column:
+                  name: submission_id
+                  type: uuid
+                  constraints:
+                    nullable: false
+              - column:
+                  name: user_id
+                  type: uuid
+                  constraints:
+                    nullable: false
+
+        # Add composite primary key on votes table
+        - addPrimaryKey:
+            tableName: votes
+            columnNames: submission_id, user_id
+            constraintName: pk_votes
+
+        # Add foreign key from votes to submissions
+        - addForeignKeyConstraint:
+            baseTableName: votes
+            baseColumnNames: submission_id
+            referencedTableName: submissions
+            referencedColumnNames: id
+            constraintName: fk_votes_submission_id
+
+        # Add foreign key from votes to users
+        - addForeignKeyConstraint:
+            baseTableName: votes
+            baseColumnNames: user_id
+            referencedTableName: users
+            referencedColumnNames: id
+            constraintName: fk_votes_user_id
+
+        # Create reactions table for tracking user likes/dislikes on publications
+        - createTable:
+            tableName: reactions
+            columns:
+              - column:
+                  name: publication_id
+                  type: uuid
+                  constraints:
+                    nullable: false
+              - column:
+                  name: user_id
+                  type: uuid
+                  constraints:
+                    nullable: false
+              - column:
+                  name: reaction_type
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+
+        # Add composite primary key on reactions table
+        - addPrimaryKey:
+            tableName: reactions
+            columnNames: publication_id, user_id
+            constraintName: pk_reactions
+
+        # Add foreign key from reactions to publications
+        - addForeignKeyConstraint:
+            baseTableName: reactions
+            baseColumnNames: publication_id
+            referencedTableName: publications
+            referencedColumnNames: id
+            constraintName: fk_reactions_publication_id
+
+        # Add foreign key from reactions to users
+        - addForeignKeyConstraint:
+            baseTableName: reactions
+            baseColumnNames: user_id
+            referencedTableName: users
+            referencedColumnNames: id
+            constraintName: fk_reactions_user_id
+
+  - changeSet:
+      id: 5
+      author: dimanchous
+      changes:
+        # Add submitter_hidden column to submissions table
+        - addColumn:
+            tableName: submissions
+            columns:
+              - column:
+                  name: submitter_hidden
+                  type: boolean
+                  defaultValueBoolean: false
+                  constraints:
+                    nullable: false
+
+        # Add author_hidden column to submissions table
+        - addColumn:
+            tableName: submissions
+            columns:
+              - column:
+                  name: author_hidden
+                  type: boolean
+                  defaultValueBoolean: false
+                  constraints:
+                    nullable: false
+
