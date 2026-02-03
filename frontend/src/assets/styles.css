@@ -1,7 +1,66 @@
 /* ========================================
    MODERN ELEGANT DESIGN
-   Sophisticated Dark Theme with Warm Accents
+   Output Center Design System
    ======================================== */
+
+/* Color Palette */
+:root {
+  /* Primary Brand Colors */
+  --color-blue-primary: #0B5ED7;
+  --color-blue-dark: #084298;
+  --color-blue-light: #E7F1FF;
+  
+  --color-orange-primary: #F97316;
+  --color-orange-dark: #C2410C;
+  --color-orange-light: #FFF3E8;
+  
+  /* Text Colors */
+  --color-text-primary: #0F172A;
+  --color-text-secondary: #475569;
+  --color-text-muted: #94A3B8;
+  
+  /* Backgrounds */
+  --color-bg-white: #FFFFFF;
+  --color-bg-soft: #F8FAFC;
+  --color-divider: #E2E8F0;
+}
+
+/* ========================================
+   EMPTY STATE
+   ======================================== */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  text-align: center;
+  background: var(--color-bg-white);
+  border-radius: 16px;
+  border: 2px dashed var(--color-divider);
+  margin: 2rem auto;
+  max-width: 600px;
+}
+
+.empty-icon {
+  color: var(--color-blue-primary);
+  opacity: 0.3;
+  margin-bottom: 1.5rem;
+}
+
+.empty-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin: 0 0 0.75rem 0;
+}
+
+.empty-description {
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+  margin: 0;
+  line-height: 1.6;
+}
 
 /* Reset and Base Styles */
 * {
@@ -13,8 +72,8 @@
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', 'Helvetica Neue', Arial, sans-serif;
   line-height: 1.7;
-  color: #1a1a1a;
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  color: var(--color-text-primary);
+  background: var(--color-bg-soft);
   font-size: 16px;
   overflow-y: scroll;
   -webkit-font-smoothing: antialiased;
@@ -28,15 +87,228 @@ body {
 }
 
 /* ========================================
-   TOP BAR - Profile Section
+   EMPTY STATE
    ======================================== */
-.top-bar {
-  position: fixed;
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  text-align: center;
+  background: var(--color-bg-white);
+  border-radius: 16px;
+  border: 2px dashed var(--color-divider);
+  margin: 2rem auto;
+  max-width: 600px;
+}
+
+.empty-icon {
+  color: var(--color-blue-primary);
+  opacity: 0.3;
+  margin-bottom: 1.5rem;
+}
+
+.empty-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin: 0 0 0.75rem 0;
+}
+
+.empty-description {
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+  margin: 0 0 2rem 0;
+  line-height: 1.6;
+}
+
+.empty-action-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 0.875rem 2rem;
+  background: var(--color-orange-primary);
+  color: white;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 50px;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(249, 115, 22, 0.25);
+}
+
+.empty-action-button:hover {
+  background: var(--color-orange-dark);
+  box-shadow: 0 4px 12px rgba(249, 115, 22, 0.35);
+  transform: translateY(-2px);
+}
+
+.empty-action-button svg {
+  flex-shrink: 0;
+}
+
+/* ========================================
+   NAVIGATION BAR
+   ======================================== */
+.navbar {
+  background: var(--color-bg-white);
+  border-bottom: 1px solid var(--color-divider);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  position: sticky;
   top: 0;
-  right: 0;
-  padding: 1.5rem 2rem;
   z-index: 1000;
 }
+
+.navbar-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* Brand / Logo Section */
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.brand-logo {
+  height: 44px;
+  width: fit-content;
+}
+
+.brand-name {
+  display: flex;
+  gap: 0;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.brand-output {
+  background: linear-gradient(135deg, var(--color-blue-primary) 0%, var(--color-blue-dark) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.brand-dot {
+  background: linear-gradient(135deg, var(--color-blue-dark) 0%, var(--color-orange-primary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 900;
+}
+
+.brand-center {
+  background: linear-gradient(135deg, var(--color-orange-primary) 0%, var(--color-orange-dark) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Navigation Links */
+.navbar-links {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: 50px;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  position: relative;
+  background: transparent;
+  border: 1px solid transparent;
+}
+
+.nav-link svg {
+  transition: all 0.2s ease;
+  color: var(--color-text-muted);
+}
+
+.nav-link:hover {
+  background: var(--color-blue-light);
+  color: var(--color-blue-primary);
+  border-color: var(--color-blue-light);
+}
+
+.nav-link:hover svg {
+  color: var(--color-blue-primary);
+}
+
+.nav-link.active {
+  color: var(--color-blue-primary);
+  background: var(--color-blue-light);
+  font-weight: 600;
+  border-color: var(--color-blue-primary);
+}
+
+.nav-link.active svg {
+  color: var(--color-blue-primary);
+}
+
+/* Submit Link (Orange) */
+.nav-link.submit-link {
+  background: var(--color-orange-primary);
+  color: white;
+  font-weight: 600;
+  border: 1px solid var(--color-orange-primary);
+  box-shadow: 0 2px 8px rgba(249, 115, 22, 0.2);
+}
+
+.nav-link.submit-link svg {
+  color: white;
+}
+
+.nav-link.submit-link:hover {
+  background: var(--color-orange-dark);
+  border-color: var(--color-orange-dark);
+  color: white;
+  box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
+  transform: translateY(-1px);
+}
+
+.nav-link.submit-link:hover svg {
+  color: white;
+}
+
+.nav-link.submit-link.active {
+  background: var(--color-orange-dark);
+  border-color: var(--color-orange-dark);
+  color: white;
+}
+
+.nav-link.submit-link.active svg {
+  color: white;
+}
+
+/* Spacer for pushing profile to the right */
+.navbar-spacer {
+  flex: 1;
+}
+
+/* Right Side - Profile/Auth */
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+/* ========================================
+   PROFILE SECTION (in Navbar)
+   ======================================== */
 
 .profile-section {
   position: relative;
@@ -48,23 +320,23 @@ body {
   gap: 0.75rem;
   padding: 0.5rem 1rem;
   background: white;
-  border: 1px solid #e5e7eb;
+  border: 1px solid var(--color-divider);
   border-radius: 50px;
   cursor: pointer;
-  transition: all 0.15s ease;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.08);
 }
 
 .profile-trigger:hover {
-  border-color: #d1d5db;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  border-color: var(--color-blue-primary);
+  box-shadow: 0 4px 10px rgba(11, 94, 215, 0.15);
 }
 
 .profile-avatar {
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #6b7280 0%, #4b5563 100%);
+  background: linear-gradient(135deg, var(--color-blue-primary) 0%, var(--color-blue-dark) 100%);
   color: white;
   display: flex;
   align-items: center;
@@ -77,11 +349,11 @@ body {
 .profile-name {
   font-size: 14px;
   font-weight: 600;
-  color: #374151;
+  color: var(--color-text-primary);
 }
 
 .profile-arrow {
-  color: #9ca3af;
+  color: var(--color-text-muted);
   transition: transform 0.2s ease;
 }
 
@@ -95,9 +367,9 @@ body {
   right: 0;
   min-width: 220px;
   background: white;
-  border: 1px solid #e5e7eb;
+  border: 1px solid var(--color-divider);
   border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12);
   overflow: hidden;
 }
 
@@ -106,7 +378,7 @@ body {
   align-items: center;
   gap: 0.75rem;
   padding: 0.875rem 1.25rem;
-  color: #374151;
+  color: var(--color-text-primary);
   text-decoration: none;
   font-size: 14px;
   font-weight: 500;
@@ -119,21 +391,21 @@ body {
 }
 
 .menu-item svg {
-  color: #6b7280;
+  color: var(--color-text-muted);
   flex-shrink: 0;
 }
 
 .menu-item:hover {
-  background: #f9fafb;
+  background: var(--color-bg-soft);
 }
 
 .menu-item.logout {
-  color: #6b7280;
+  color: var(--color-text-secondary);
 }
 
 .menu-item.logout:hover {
-  background: #fef2f2;
-  color: #dc2626;
+  background: #FEF2F2;
+  color: #DC2626;
 }
 
 .menu-item.logout svg {
@@ -142,7 +414,7 @@ body {
 
 .menu-divider {
   height: 1px;
-  background: #e5e7eb;
+  background: var(--color-divider);
   margin: 0.5rem 0;
 }
 
@@ -155,19 +427,20 @@ body {
 .auth-link {
   padding: 0.6rem 1.5rem;
   background: white;
-  border: 1px solid #e5e7eb;
-  border-radius: 8px;
-  color: #374151;
+  border: 1px solid var(--color-divider);
+  border-radius: 50px;
+  color: var(--color-text-primary);
   text-decoration: none;
   font-size: 14px;
   font-weight: 600;
-  transition: all 0.15s ease;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08);
 }
 
 .auth-link:hover {
-  border-color: #d1d5db;
-  background: #f9fafb;
+  border-color: var(--color-blue-primary);
+  background: var(--color-blue-light);
+  color: var(--color-blue-primary);
 }
 
 /* ========================================
@@ -178,24 +451,24 @@ main {
   max-width: 1400px;
   width: 100%;
   margin: 0 auto;
-  padding: 2rem 2rem 3rem 2rem;
+  padding: 3rem 2rem;
 }
 
 h1 {
-  color: #1a1a1a;
+  color: var(--color-text-primary);
   font-size: 3rem;
   font-weight: 700;
   margin-bottom: 3rem;
   text-align: center;
   letter-spacing: -0.5px;
-  background: linear-gradient(135deg, #1a1a1a 0%, #495057 100%);
+  background: linear-gradient(135deg, var(--color-blue-primary) 0%, var(--color-orange-primary) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 h2 {
-  color: #1a1a1a;
+  color: var(--color-text-primary);
   margin-bottom: 2rem;
   font-size: 2rem;
   font-weight: 600;
@@ -289,13 +562,13 @@ button[type="button"]:disabled {
    ======================================== */
 .quote-card,
 .publication-card {
-  background: white;
-  border-radius: 12px;
+  background: var(--color-bg-white);
+  border-radius: 16px;
   overflow: hidden;
   margin-bottom: 2.5rem;
-  border: 1px solid #e5e7eb;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-  transition: none;
+  border: 1px solid var(--color-divider);
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
+  transition: all 0.3s ease;
 }
 
 /* Smaller margin for submission cards */
@@ -315,7 +588,9 @@ button[type="button"]:disabled {
 .quote-card:hover,
 .submission-card:hover,
 .publication-card:hover {
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 16px rgba(11, 94, 215, 0.12);
+  border-color: var(--color-blue-light);
+  transform: translateY(-2px);
 }
 
 /* Quote Content Layout - Avatar with Speech Bubble */
@@ -356,11 +631,11 @@ button[type="button"]:disabled {
   width: 160px;
   height: 160px;
   flex-shrink: 0;
-  border-radius: 8px;
+  border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-  border: 1px solid #e5e7eb;
-  background: white;
+  box-shadow: 0 2px 8px rgba(11, 94, 215, 0.1);
+  border: 2px solid var(--color-blue-light);
+  background: var(--color-bg-white);
 }
 
 /* Smaller image for submissions */
@@ -401,10 +676,10 @@ button[type="button"]:disabled {
   flex-direction: column;
   justify-content: center;
   padding: 2rem 2.5rem;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-  border: 1px solid #e5e7eb;
+  background: var(--color-bg-soft);
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
+  border: 1px solid var(--color-divider);
 }
 
 /* Speech bubble tail pointing to avatar center */
@@ -417,7 +692,7 @@ button[type="button"]:disabled {
   height: 0;
   border-top: 15px solid transparent;
   border-bottom: 15px solid transparent;
-  border-right: 16px solid #e5e7eb;
+  border-right: 16px solid var(--color-divider);
   z-index: 1;
 }
 
@@ -430,7 +705,7 @@ button[type="button"]:disabled {
   height: 0;
   border-top: 14px solid transparent;
   border-bottom: 14px solid transparent;
-  border-right: 15px solid white;
+  border-right: 15px solid var(--color-bg-soft);
   z-index: 2;
 }
 
@@ -448,7 +723,7 @@ button[type="button"]:disabled {
   font-size: 2rem;
   font-weight: 500;
   line-height: 1.5;
-  color: #1a1a1a;
+  color: var(--color-text-primary);
   margin: 0 0 1.5rem 0;
   font-style: italic;
   font-family: 'Georgia', 'Merriweather', serif;
@@ -478,8 +753,8 @@ button[type="button"]:disabled {
   left: 0;
   top: -0.6rem;
   font-size: 4rem;
-  color: #9ca3af;
-  opacity: 0.2;
+  color: var(--color-blue-primary);
+  opacity: 0.15;
   font-family: Georgia, serif;
   line-height: 1;
   font-style: normal;
@@ -503,7 +778,7 @@ button[type="button"]:disabled {
 .quote-author {
   text-align: center;
   font-size: 0.85rem;
-  color: #6b7280;
+  color: var(--color-text-secondary);
   font-weight: 600;
   font-style: normal;
   letter-spacing: 0.3px;

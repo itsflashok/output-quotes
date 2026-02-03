@@ -4,8 +4,18 @@
 
     <div v-if="publicationStore.loading" class="loading">Veröffentlichungen werden geladen...</div>
 
-    <div v-else-if="publicationStore.publications.length === 0">
-      Noch keine Veröffentlichungen verfügbar.
+    <div v-else-if="publicationStore.publications.length === 0" class="empty-state">
+      <svg class="empty-icon" width="64" height="64" viewBox="0 0 24 24" fill="none">
+        <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <h2 class="empty-title">Noch keine Veröffentlichungen</h2>
+      <p class="empty-description">Es wurden noch keine Zitate veröffentlicht. Schau später nochmal vorbei!</p>
+      <router-link v-if="authStore.isAuthenticated" to="/submit" class="empty-action-button">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>Zitat einreichen</span>
+      </router-link>
     </div>
 
     <div v-else class="publications-container">
