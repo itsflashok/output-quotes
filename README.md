@@ -5,4 +5,6 @@ The backend has been written by me.
 
 The frontend is 99.99999% vibe-coded.
 
-Feel free to contribute.
+Feel free to contribute. Feel free to hack the app. Feel free.
+
+https://output.center
